@@ -21,7 +21,7 @@ function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr]">
           <div className="space-y-6 rounded-[2rem] border border-slate-800 bg-slate-900/90 p-8 shadow-2xl shadow-emerald-500/10">
             <div className="flex items-center gap-3 text-white">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-emerald-500 text-lg font-bold shadow-lg shadow-emerald-500/20">
+              <span className="inline-flex h-12 w-18 items-center justify-center rounded-3xl bg-emerald-500 text-lg font-bold shadow-lg shadow-emerald-500/20">
                 W
               </span>
               <div>

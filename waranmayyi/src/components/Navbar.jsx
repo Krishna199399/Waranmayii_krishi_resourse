@@ -1,59 +1,64 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+﻿import { useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-      <div className="flex items-center justify-between px-4 md:px-10 py-3">
+    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur-xl text-slate-100 shadow-xl shadow-slate-950/30">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="/" className="flex items-center gap-3">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-500 text-lg font-bold text-slate-950 shadow-lg shadow-emerald-500/20">
+            W
+          </span>
+          <div>
+            <p className="text-lg font-semibold tracking-tight text-white">Waranmayii</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/80">Green agriculture</p>
+          </div>
+        </a>
 
-        {/* Logo */}
-        <h1 className="text-xl font-bold text-blue-600">
-          Waranmayii
-        </h1>
-
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="/" className="hover:text-blue-600">Home</a>
-          <a href="/about" className="hover:text-blue-600">About Us</a>
-          <a href="/products" className="hover:text-blue-600">Products</a>
-          <a href="/contact" className="hover:text-blue-600">Contact Us</a>
+        <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
+          <a href="/" className="transition hover:text-emerald-300">Home</a>
+          <a href="/about" className="transition hover:text-emerald-300">About Us</a>
+          <a href="/products" className="transition hover:text-emerald-300">Products</a>
+          <a href="/contact" className="transition hover:text-emerald-300">Contact</a>
+          <button className="inline-flex items-center gap-1 rounded-full border border-slate-800 bg-slate-900/80 px-3 py-2 text-slate-300 transition hover:border-emerald-400 hover:text-white">
+            More <ChevronDown size={16} />
+          </button>
         </nav>
 
-        {/* Auth Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <button className="px-4 py-2 text-sm border rounded-lg hover:bg-gray-100">
+        <div className="hidden items-center gap-3 md:flex">
+          <button className="rounded-full border border-emerald-500/20 px-4 py-2 text-sm text-slate-200 transition hover:border-emerald-400 hover:text-white">
             Login
           </button>
-          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <button className="rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400">
             Register
           </button>
         </div>
 
-        {/* Mobile Toggle */}
         <button
-          className="md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-800 bg-slate-900 text-slate-200 transition hover:border-emerald-400 md:hidden"
           onClick={() => setOpen(!open)}
+          aria-label="Toggle navigation"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden px-4 pb-4 space-y-3 text-sm font-medium">
+        <div className="animate-fade-in border-t border-slate-800 bg-slate-950 px-4 py-5 text-slate-200 md:hidden">
+          <div className="space-y-4">
+            <a href="/" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">Home</a>
+            <a href="/about" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">About Us</a>
+            <a href="/products" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">Products</a>
+            <a href="/contact" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">Contact</a>
+          </div>
 
-          <a href="/" className="block">Home</a>
-          <a href="/about" className="block">About Us</a>
-          <a href="/products" className="block">Products</a>
-          <a href="/contact" className="block">Contact Us</a>
-
-          <div className="flex gap-3 pt-2">
-            <button className="w-full px-4 py-2 border rounded-lg">
+          <div className="mt-4 flex flex-col gap-3">
+            <button className="w-full rounded-full border border-emerald-500/20 px-4 py-3 text-sm text-slate-200 transition hover:border-emerald-400 hover:text-white">
               Login
             </button>
-            <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg">
+            <button className="w-full rounded-full bg-emerald-500 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400">
               Register
             </button>
           </div>
