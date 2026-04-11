@@ -1,43 +1,40 @@
 ﻿import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur-xl text-slate-100 shadow-xl shadow-slate-950/30">
+    <header className="sticky top-0 z-50 bg-white border-b border-green-100 shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="/" className="flex items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-500 text-lg font-bold text-slate-950 shadow-lg shadow-emerald-500/20">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-3xl bg-gradient-to-br from-green-400 to-emerald-500 text-lg font-bold text-white shadow-lg shadow-green-400/20">
             W
           </span>
           <div>
-            <p className="text-lg font-semibold tracking-tight text-white">Waranmayii</p>
-            <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/80">Green agriculture</p>
+            <p className="text-lg font-semibold tracking-tight text-gray-900">Waranmayii</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-green-600">Green agriculture</p>
           </div>
         </a>
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-          <a href="/" className="transition hover:text-emerald-300">Home</a>
-          <a href="/about" className="transition hover:text-emerald-300">About Us</a>
-          <a href="/products" className="transition hover:text-emerald-300">Products</a>
-          <a href="/contact" className="transition hover:text-emerald-300">Contact</a>
-          <button className="inline-flex items-center gap-1 rounded-full border border-slate-800 bg-slate-900/80 px-3 py-2 text-slate-300 transition hover:border-emerald-400 hover:text-white">
-            More <ChevronDown size={16} />
-          </button>
+          <a href="/" className="text-gray-700 transition hover:text-green-600">Home</a>
+          <a href="/about" className="text-gray-700 transition hover:text-green-600">About Us</a>
+          <a href="/products" className="text-gray-700 transition hover:text-green-600">Products</a>
+          <a href="/contact" className="text-gray-700 transition hover:text-green-600">Contact</a>
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <button className="rounded-full border border-emerald-500/20 px-4 py-2 text-sm text-slate-200 transition hover:border-emerald-400 hover:text-white">
+          <button className="rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30">
             Login
           </button>
-          <button className="rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400">
+          <button className="rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30">
             Register
           </button>
         </div>
 
         <button
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-800 bg-slate-900 text-slate-200 transition hover:border-emerald-400 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-green-300 text-gray-700 transition hover:bg-green-50 md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle navigation"
         >
@@ -46,19 +43,19 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="animate-fade-in border-t border-slate-800 bg-slate-950 px-4 py-5 text-slate-200 md:hidden">
-          <div className="space-y-4">
-            <a href="/" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">Home</a>
-            <a href="/about" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">About Us</a>
-            <a href="/products" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">Products</a>
-            <a href="/contact" className="block rounded-2xl px-4 py-3 transition hover:bg-slate-900/80 hover:text-emerald-300">Contact</a>
+        <div className="border-t border-green-100 bg-white px-4 py-5 md:hidden">
+          <div className="space-y-2">
+            <a href="/" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">Home</a>
+            <a href="/about" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">About Us</a>
+            <a href="/products" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">Products</a>
+            <a href="/contact" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">Contact</a>
           </div>
 
-          <div className="mt-4 flex flex-col gap-3">
-            <button className="w-full rounded-full border border-emerald-500/20 px-4 py-3 text-sm text-slate-200 transition hover:border-emerald-400 hover:text-white">
+          <div className="mt-4 flex flex-col gap-2">
+            <button className="w-full rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-2 text-sm font-semibold text-white transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30">
               Login
             </button>
-            <button className="w-full rounded-full bg-emerald-500 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400">
+            <button className="w-full rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-4 py-2 text-sm font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30">
               Register
             </button>
           </div>

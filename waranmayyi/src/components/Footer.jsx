@@ -2,46 +2,55 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-slate-950 text-slate-100">
-      <div className="pointer-events-none absolute -right-24 top-6 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute left-10 top-28 h-56 w-56 rounded-full bg-emerald-400/10 blur-3xl" />
+    <footer className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-emerald-950 to-teal-900 text-slate-100">
+      <div className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
+      <div className="pointer-events-none absolute left-10 top-24 h-56 w-56 rounded-full bg-teal-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="mb-10 rounded-[2rem] border border-emerald-500/20 bg-slate-900/80 p-8 shadow-2xl shadow-emerald-500/10 backdrop-blur-xl">
-          <div className="flex flex-col gap-6 rounded-[1.75rem] bg-gradient-to-r from-emerald-600/15 via-slate-900/50 to-slate-950 p-8 shadow-xl shadow-emerald-500/10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-14 rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-emerald-500/10 backdrop-blur-xl">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Grow green</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">A modern footer designed for a greener farm future.</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Waranmayii</p>
+              <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Modern green solutions for farms, wellness, and everyday sustainability.
+              </h2>
             </div>
-            <a href="#" className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-emerald-500/30 transition hover:bg-emerald-400">
-              View offerings
-            </a>
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-end">
+              <a href="#" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-emerald-500/25 transition hover:from-emerald-600 hover:to-teal-600">
+                Explore offerings
+              </a>
+              <a href="#" className="inline-flex items-center justify-center rounded-full border border-emerald-400/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15">
+                Contact us
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr]">
-          <div className="space-y-6 rounded-[2rem] border border-slate-800 bg-slate-900/90 p-8 shadow-2xl shadow-emerald-500/10">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
+          <div className="space-y-6 rounded-[2rem] border border-green-600/20 bg-white/5 p-8 shadow-2xl shadow-emerald-400/10 backdrop-blur-xl">
             <div className="flex items-center gap-3 text-white">
-              <span className="inline-flex h-12 w-18 items-center justify-center rounded-3xl bg-emerald-500 text-lg font-bold shadow-lg shadow-emerald-500/20">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-500 text-lg font-bold text-white shadow-lg shadow-emerald-500/20">
                 W
               </span>
               <div>
                 <p className="text-2xl font-semibold">Waranmayii</p>
-                <p className="text-sm text-slate-400">Sustainable farming tools, education, and community support for modern growers.</p>
+                <p className="text-sm text-slate-300">Sustainable tools, education, and community support for modern growers.</p>
               </div>
             </div>
 
             <p className="max-w-md leading-7 text-slate-300">
-              Discover a fresh footer that feels premium, uses green accents, and gives visitors an instant sense of trust and vitality.
+              A polished gradient footer using strong green tones, soft glow accents, and clean typography for a premium finish.
             </p>
 
             <div className="grid grid-cols-3 gap-3 sm:grid-cols-3">
-              <div className="rounded-3xl bg-emerald-500/10 px-3 py-2 text-center text-sm font-semibold text-emerald-300">
+              <div className="rounded-3xl bg-emerald-500/10 px-3 py-2 text-center text-sm font-semibold text-emerald-200">
                 120+ farmers
               </div>
-              <div className="rounded-3xl bg-slate-800 px-3 py-2 text-center text-sm text-slate-300">
+              <div className="rounded-3xl bg-slate-900/70 px-3 py-2 text-center text-sm text-slate-300">
                 24/7 support
               </div>
-              <div className="rounded-3xl bg-slate-800 px-3 py-2 text-center text-sm text-slate-300">
+              <div className="rounded-3xl bg-slate-900/70 px-3 py-2 text-center text-sm text-slate-300">
                 100% organic
               </div>
             </div>
@@ -51,7 +60,7 @@ function Footer() {
                 <a
                   key={label}
                   href="#"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-800 text-slate-200 transition hover:bg-emerald-500"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-200 transition hover:bg-emerald-500 hover:text-white"
                   aria-label={label}
                 >
                   <span className="sr-only">{label}</span>
@@ -103,7 +112,7 @@ function Footer() {
               />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+                className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:from-emerald-600 hover:to-teal-600"
               >
                 Subscribe
               </button>
@@ -111,7 +120,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-emerald-500/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-emerald-500/10 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Waranmayii. All rights reserved.</p>
           <div className="flex flex-wrap gap-4 text-slate-300">
             <a href="#" className="transition hover:text-emerald-400">Privacy Policy</a>
