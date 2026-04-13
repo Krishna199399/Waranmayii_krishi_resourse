@@ -100,12 +100,18 @@ export default function Navbar() {
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
-            <button className="w-full rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-2 text-sm font-semibold text-white transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30">
+            <Link
+              to={"/login"}
+              className="w-full rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-2 text-sm font-semibold text-white text-center transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30"
+            >
               Login
-            </button>
-            <button className="w-full rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-4 py-2 text-sm font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30">
+            </Link>
+            <Link
+              to={"/register"}
+              className="w-full rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-4 py-2 text-sm font-semibold text-white text-center transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30"
+            >
               Register
-            </button>
+            </Link>
           </div>
         </div>
       )}

@@ -194,7 +194,7 @@ export default function Register() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-15"
+      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-8 md:py-15"
       style={{
         background:
           "linear-gradient(135deg, #0f172a 0%, #064e3b 55%, #065f46 100%)",
