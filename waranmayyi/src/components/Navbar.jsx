@@ -1,5 +1,6 @@
 ﻿import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -25,12 +26,16 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <button className="rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30">
+          <Link
+          to={"/Login"}
+          className="rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30">
             Login
-          </button>
-          <button className="rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30">
+          </Link>
+          <Link 
+          to={"/Register"}
+          className="rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30">
             Register
-          </button>
+          </Link>
         </div>
 
         <button
