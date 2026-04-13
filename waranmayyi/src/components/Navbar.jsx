@@ -13,27 +13,50 @@ export default function Navbar() {
             W
           </span>
           <div>
-            <p className="text-lg font-semibold tracking-tight text-gray-900">Waranmayii</p>
-            <p className="text-xs uppercase tracking-[0.3em] text-green-600">Green agriculture</p>
+            <p className="text-lg font-semibold tracking-tight text-gray-900">
+              Waranmayii
+            </p>
+            <p className="text-xs uppercase tracking-[0.3em] text-green-600">
+              Green agriculture
+            </p>
           </div>
         </a>
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-          <a href="/" className="text-gray-700 transition hover:text-green-600">Home</a>
-          <a href="/about" className="text-gray-700 transition hover:text-green-600">About Us</a>
-          <a href="/products" className="text-gray-700 transition hover:text-green-600">Products</a>
-          <a href="/contact" className="text-gray-700 transition hover:text-green-600">Contact</a>
+          <a href="/" className="text-gray-700 transition hover:text-green-600">
+            Home
+          </a>
+          <a
+            href="/about"
+            className="text-gray-700 transition hover:text-green-600"
+          >
+            About Us
+          </a>
+          <a
+            href="/products"
+            className="text-gray-700 transition hover:text-green-600"
+          >
+            Products
+          </a>
+          <Link
+            to="/contact"
+            className="text-gray-700 transition hover:text-green-600"
+          >
+            Contact Us
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
           <Link
-          to={"/Login"}
-          className="rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30">
+            to={"/login"}
+            className="rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-500 to-teal-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-emerald-600 hover:to-teal-600 hover:shadow-lg hover:shadow-emerald-500/30"
+          >
             Login
           </Link>
-          <Link 
-          to={"/Register"}
-          className="rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30">
+          <Link
+            to={"/register"}
+            className="rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-5 py-2 text-sm font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/30"
+          >
             Register
           </Link>
         </div>
@@ -50,10 +73,30 @@ export default function Navbar() {
       {open && (
         <div className="border-t border-green-100 bg-white px-4 py-5 md:hidden">
           <div className="space-y-2">
-            <a href="/" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">Home</a>
-            <a href="/about" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">About Us</a>
-            <a href="/products" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">Products</a>
-            <a href="/contact" className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600">Contact</a>
+            <a
+              href="/"
+              className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600"
+            >
+              Home
+            </a>
+            <a
+              href="/about"
+              className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600"
+            >
+              About Us
+            </a>
+            <a
+              href="/products"
+              className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600"
+            >
+              Products
+            </a>
+            <a
+              href="/contact"
+              className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600"
+            >
+              Contact
+            </a>
           </div>
 
           <div className="mt-4 flex flex-col gap-2">

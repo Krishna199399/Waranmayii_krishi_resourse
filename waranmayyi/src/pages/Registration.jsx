@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Lock, Eye, EyeOff, User, CheckCircle2, Leaf } from "lucide-react";
+import {
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  User,
+  CheckCircle2,
+  Leaf,
+} from "lucide-react";
 
 const inputBase =
   "w-full bg-[#020617] border border-[#334155] text-white placeholder-slate-500 rounded-xl px-4 py-3 pl-11 text-sm outline-none transition-all duration-300 focus:border-[#22c55e]";
@@ -12,7 +20,11 @@ const glowStyle = {
 
 const pageVariants = {
   initial: { opacity: 0, y: 32 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  },
   exit: { opacity: 0, y: -24, transition: { duration: 0.3, ease: "easeIn" } },
 };
 
@@ -50,7 +62,12 @@ const strengthLabels = ["Weak", "Fair", "Good", "Strong"];
 
 export default function Register() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", email: "", password: "", confirmPassword: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -62,11 +79,14 @@ export default function Register() {
     if (!form.name.trim()) errs.name = "Full name is required.";
     else if (form.name.trim().length < 2) errs.name = "Name too short.";
     if (!form.email) errs.email = "Email is required.";
-    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "Invalid email address.";
+    else if (!/\S+@\S+\.\S+/.test(form.email))
+      errs.email = "Invalid email address.";
     if (!form.password) errs.password = "Password is required.";
     else if (form.password.length < 6) errs.password = "Minimum 6 characters.";
-    if (!form.confirmPassword) errs.confirmPassword = "Please confirm your password.";
-    else if (form.password !== form.confirmPassword) errs.confirmPassword = "Passwords don't match.";
+    if (!form.confirmPassword)
+      errs.confirmPassword = "Please confirm your password.";
+    else if (form.password !== form.confirmPassword)
+      errs.confirmPassword = "Passwords don't match.";
     return errs;
   };
 
@@ -102,11 +122,17 @@ export default function Register() {
         animate="animate"
         exit="exit"
         className="min-h-screen w-full flex items-center justify-center relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #0f172a 0%, #064e3b 55%, #065f46 100%)" }}
+        style={{
+          background:
+            "linear-gradient(135deg, #0f172a 0%, #064e3b 55%, #065f46 100%)",
+        }}
       >
         <div
-          className="absolute top-[-10%] left-[-8%] w-[420px] h-[420px] rounded-full opacity-20 pointer-events-none"
-          style={{ background: "radial-gradient(circle, #22c55e 0%, transparent 70%)", filter: "blur(60px)" }}
+          className="absolute top-[-10%] left-[-8%] w-105 h-105 rounded-full opacity-20 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, #22c55e 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
@@ -117,22 +143,43 @@ export default function Register() {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+              delay: 0.1,
+            }}
             className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
-            style={{ background: "linear-gradient(135deg, #22c55e, #84cc16)", boxShadow: "0 0 40px rgba(34,197,94,0.5)" }}
+            style={{
+              background: "linear-gradient(135deg, #22c55e, #84cc16)",
+              boxShadow: "0 0 40px rgba(34,197,94,0.5)",
+            }}
           >
             <CheckCircle2 size={38} className="text-white" strokeWidth={2} />
           </motion.div>
-          <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
+          <h2
+            className="text-3xl font-bold text-white mb-2"
+            style={{ fontFamily: "'Rajdhani', sans-serif" }}
+          >
             Account Created!
           </h2>
-          <p className="text-slate-400 mb-8 text-sm">Welcome aboard, {form.name.split(" ")[0]}.</p>
+          <p className="text-slate-400 mb-8 text-sm">
+            Welcome aboard, {form.name.split(" ")[0]}.
+          </p>
           <motion.button
-            whileHover={{ scale: 1.04, boxShadow: "0 8px 30px rgba(34,197,94,0.45)" }}
+            whileHover={{
+              scale: 1.04,
+              boxShadow: "0 8px 30px rgba(34,197,94,0.45)",
+            }}
             whileTap={{ scale: 0.97 }}
             onClick={() => navigate("/login")}
             className="px-8 py-3 rounded-xl text-white font-bold text-sm tracking-wide"
-            style={{ background: "linear-gradient(to right, #84cc16, #22c55e)", fontFamily: "'Rajdhani', sans-serif", fontSize: "15px", letterSpacing: "0.08em" }}
+            style={{
+              background: "linear-gradient(to right, #84cc16, #22c55e)",
+              fontFamily: "'Rajdhani', sans-serif",
+              fontSize: "15px",
+              letterSpacing: "0.08em",
+            }}
           >
             GO TO LOGIN
           </motion.button>
@@ -147,28 +194,29 @@ export default function Register() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-10"
+      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-15"
       style={{
-        background: "linear-gradient(135deg, #0f172a 0%, #064e3b 55%, #065f46 100%)",
+        background:
+          "linear-gradient(135deg, #0f172a 0%, #064e3b 55%, #065f46 100%)",
       }}
     >
       {/* Ambient orbs */}
       <div
-        className="absolute top-[-10%] right-[-8%] w-[420px] h-[420px] rounded-full opacity-20 pointer-events-none"
+        className="absolute top-[-10%] right-[-8%] w-105 h-105 rounded-full opacity-20 pointer-events-none"
         style={{
           background: "radial-gradient(circle, #22c55e 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
       <div
-        className="absolute bottom-[-12%] left-[-8%] w-[380px] h-[380px] rounded-full opacity-15 pointer-events-none"
+        className="absolute bottom-[-12%] left-[-8%] w-95 h-95 rounded-full opacity-15 pointer-events-none"
         style={{
           background: "radial-gradient(circle, #84cc16 0%, transparent 70%)",
           filter: "blur(70px)",
         }}
       />
       <div
-        className="absolute top-[30%] left-[10%] w-[200px] h-[200px] rounded-full opacity-10 pointer-events-none"
+        className="absolute top-[30%] left-[10%] w-50 h-50 rounded-full opacity-10 pointer-events-none"
         style={{
           background: "radial-gradient(circle, #34d399 0%, transparent 70%)",
           filter: "blur(50px)",
@@ -204,33 +252,41 @@ export default function Register() {
         {/* Top glow strip */}
         <div
           className="absolute top-0 left-[20%] right-[20%] h-px rounded-full"
-          style={{ background: "linear-gradient(to right, transparent, rgba(52,211,153,0.6), transparent)" }}
+          style={{
+            background:
+              "linear-gradient(to right, transparent, rgba(52,211,153,0.6), transparent)",
+          }}
         />
 
-        <div className="p-8 sm:p-10">
+        <div className="p-6 sm:p-7">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex flex-col items-center mb-8"
+            className="flex flex-col items-center mb-5"
           >
             <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+              className="w-11 h-11 rounded-2xl flex items-center justify-center mb-3"
               style={{
                 background: "linear-gradient(135deg, #22c55e, #84cc16)",
                 boxShadow: "0 8px 24px rgba(34,197,94,0.4)",
               }}
             >
-              <Leaf size={26} className="text-white" strokeWidth={2.2} />
+              <Leaf size={22} className="text-white" strokeWidth={2.2} />
             </div>
             <h1
-              className="text-3xl font-bold text-white tracking-tight mb-1"
-              style={{ fontFamily: "'Rajdhani', sans-serif", letterSpacing: "-0.02em" }}
+              className="text-2xl font-bold text-white tracking-tight mb-1"
+              style={{
+                fontFamily: "'Rajdhani', sans-serif",
+                letterSpacing: "-0.02em",
+              }}
             >
               Create Account
             </h1>
-            <p className="text-slate-400 text-sm">Join the eco-tech movement today</p>
+            <p className="text-slate-400 text-sm">
+              Join the eco-tech movement today
+            </p>
           </motion.div>
 
           {/* Form */}
@@ -239,18 +295,20 @@ export default function Register() {
             initial="initial"
             animate="animate"
             onSubmit={handleSubmit}
-            className="space-y-5"
+            className="space-y-4"
           >
             {/* Full Name */}
             <motion.div variants={fieldVariant}>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Full Name
               </label>
               <div className="relative">
                 <User
                   size={16}
                   className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
-                  style={{ color: focusedField === "name" ? "#22c55e" : "#475569" }}
+                  style={{
+                    color: focusedField === "name" ? "#22c55e" : "#475569",
+                  }}
                 />
                 <input
                   type="text"
@@ -277,14 +335,16 @@ export default function Register() {
 
             {/* Email */}
             <motion.div variants={fieldVariant}>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Email Address
               </label>
               <div className="relative">
                 <Mail
                   size={16}
                   className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
-                  style={{ color: focusedField === "email" ? "#22c55e" : "#475569" }}
+                  style={{
+                    color: focusedField === "email" ? "#22c55e" : "#475569",
+                  }}
                 />
                 <input
                   type="email"
@@ -311,14 +371,16 @@ export default function Register() {
 
             {/* Password */}
             <motion.div variants={fieldVariant}>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Password
               </label>
               <div className="relative">
                 <Lock
                   size={16}
                   className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
-                  style={{ color: focusedField === "password" ? "#22c55e" : "#475569" }}
+                  style={{
+                    color: focusedField === "password" ? "#22c55e" : "#475569",
+                  }}
                 />
                 <input
                   type={showPassword ? "text" : "password"}
@@ -352,13 +414,21 @@ export default function Register() {
                         key={s}
                         className="flex-1 h-1 rounded-full transition-all duration-300"
                         style={{
-                          background: s <= strength ? strengthColors[strength - 1] : "#1e293b",
+                          background:
+                            s <= strength
+                              ? strengthColors[strength - 1]
+                              : "#1e293b",
                         }}
                       />
                     ))}
                   </div>
-                  <p className="text-xs" style={{ color: strengthColors[strength - 1] || "#475569" }}>
-                    {form.password ? strengthLabels[strength - 1] || "Too short" : ""}
+                  <p
+                    className="text-xs"
+                    style={{ color: strengthColors[strength - 1] || "#475569" }}
+                  >
+                    {form.password
+                      ? strengthLabels[strength - 1] || "Too short"
+                      : ""}
                   </p>
                 </motion.div>
               )}
@@ -377,14 +447,19 @@ export default function Register() {
 
             {/* Confirm Password */}
             <motion.div variants={fieldVariant}>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Confirm Password
               </label>
               <div className="relative">
                 <Lock
                   size={16}
                   className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
-                  style={{ color: focusedField === "confirmPassword" ? "#22c55e" : "#475569" }}
+                  style={{
+                    color:
+                      focusedField === "confirmPassword"
+                        ? "#22c55e"
+                        : "#475569",
+                  }}
                 />
                 <input
                   type={showConfirm ? "text" : "password"}
@@ -396,7 +471,8 @@ export default function Register() {
                   className={inputBase + " pr-11"}
                   style={{
                     ...getInputStyle("confirmPassword"),
-                    ...(form.confirmPassword && form.password === form.confirmPassword
+                    ...(form.confirmPassword &&
+                    form.password === form.confirmPassword
                       ? { borderColor: "#22c55e" }
                       : {}),
                   }}
@@ -409,15 +485,16 @@ export default function Register() {
                   {showConfirm ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
                 {/* Match checkmark */}
-                {form.confirmPassword && form.password === form.confirmPassword && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="absolute right-10 top-1/2 -translate-y-1/2"
-                  >
-                    <CheckCircle2 size={15} className="text-emerald-400" />
-                  </motion.div>
-                )}
+                {form.confirmPassword &&
+                  form.password === form.confirmPassword && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="absolute right-10 top-1/2 -translate-y-1/2"
+                    >
+                      <CheckCircle2 size={15} className="text-emerald-400" />
+                    </motion.div>
+                  )}
               </div>
               {errors.confirmPassword && (
                 <motion.p
@@ -435,9 +512,12 @@ export default function Register() {
             <motion.div variants={fieldVariant} className="pt-1">
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.025, boxShadow: "0 8px 30px rgba(34,197,94,0.45)" }}
+                whileHover={{
+                  scale: 1.025,
+                  boxShadow: "0 8px 30px rgba(34,197,94,0.45)",
+                }}
                 whileTap={{ scale: 0.975 }}
-                className="w-full py-3.5 rounded-xl text-white font-bold text-sm tracking-wide transition-all duration-200 relative overflow-hidden"
+                className="w-full py-3 rounded-xl text-white font-bold text-sm tracking-wide transition-all duration-200 relative overflow-hidden"
                 style={{
                   background: "linear-gradient(to right, #84cc16, #22c55e)",
                   boxShadow: "0 4px 16px rgba(34,197,94,0.3)",
@@ -459,7 +539,7 @@ export default function Register() {
             className="flex items-center gap-3 my-6"
           >
             <div className="flex-1 h-px bg-slate-800" />
-            <span className="text-xs text-slate-600 font-medium">OR</span>
+            <span className="text-xs text-slate-400 font-medium">OR</span>
             <div className="flex-1 h-px bg-slate-800" />
           </motion.div>
 

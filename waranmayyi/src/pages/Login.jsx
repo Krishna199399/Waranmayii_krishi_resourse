@@ -12,7 +12,11 @@ const glowStyle = {
 
 const pageVariants = {
   initial: { opacity: 0, y: 32 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  },
   exit: { opacity: 0, y: -24, transition: { duration: 0.3, ease: "easeIn" } },
 };
 
@@ -44,7 +48,8 @@ export default function Login() {
   const validate = () => {
     const errs = {};
     if (!form.email) errs.email = "Email is required.";
-    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "Invalid email address.";
+    else if (!/\S+@\S+\.\S+/.test(form.email))
+      errs.email = "Invalid email address.";
     if (!form.password) errs.password = "Password is required.";
     else if (form.password.length < 6) errs.password = "Minimum 6 characters.";
     if (!form.role) errs.role = "Please select a role.";
@@ -78,28 +83,29 @@ export default function Login() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-15"
       style={{
-        background: "linear-gradient(135deg, #0f172a 0%, #064e3b 55%, #065f46 100%)",
+        background:
+          "linear-gradient(135deg, #0f172a 0%, #064e3b 55%, #065f46 100%)",
       }}
     >
       {/* Ambient orbs */}
       <div
-        className="absolute top-[-10%] left-[-8%] w-[420px] h-[420px] rounded-full opacity-20 pointer-events-none"
+        className="absolute top-[-10%] left-[-8%] w-105 h-105 rounded-full opacity-20 pointer-events-none"
         style={{
           background: "radial-gradient(circle, #22c55e 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
       <div
-        className="absolute bottom-[-12%] right-[-8%] w-[380px] h-[380px] rounded-full opacity-15 pointer-events-none"
+        className="absolute bottom-[-12%] right-[-8%] w-95 h-95 rounded-full opacity-15 pointer-events-none"
         style={{
           background: "radial-gradient(circle, #84cc16 0%, transparent 70%)",
           filter: "blur(70px)",
         }}
       />
       <div
-        className="absolute top-[40%] right-[15%] w-[200px] h-[200px] rounded-full opacity-10 pointer-events-none"
+        className="absolute top-[40%] right-[15%] w-50 h-50 rounded-full opacity-10 pointer-events-none"
         style={{
           background: "radial-gradient(circle, #34d399 0%, transparent 70%)",
           filter: "blur(50px)",
@@ -135,33 +141,41 @@ export default function Login() {
         {/* Inner glow top strip */}
         <div
           className="absolute top-0 left-[20%] right-[20%] h-px rounded-full"
-          style={{ background: "linear-gradient(to right, transparent, rgba(52,211,153,0.6), transparent)" }}
+          style={{
+            background:
+              "linear-gradient(to right, transparent, rgba(52,211,153,0.6), transparent)",
+          }}
         />
 
-        <div className="p-8 sm:p-10">
+        <div className="p-6 sm:p-7">
           {/* Logo / Brand */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex flex-col items-center mb-8"
+            className="flex flex-col items-center mb-5"
           >
             <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+              className="w-11 h-11 rounded-2xl flex items-center justify-center mb-3"
               style={{
                 background: "linear-gradient(135deg, #22c55e, #84cc16)",
                 boxShadow: "0 8px 24px rgba(34,197,94,0.4)",
               }}
             >
-              <Leaf size={26} className="text-white" strokeWidth={2.2} />
+              <Leaf size={22} className="text-white" strokeWidth={2.2} />
             </div>
             <h1
-              className="text-3xl font-bold text-white tracking-tight mb-1"
-              style={{ fontFamily: "'Rajdhani', sans-serif", letterSpacing: "-0.02em" }}
+              className="text-2xl font-bold text-white tracking-tight mb-1"
+              style={{
+                fontFamily: "'Rajdhani', sans-serif",
+                letterSpacing: "-0.02em",
+              }}
             >
               Welcome Back
             </h1>
-            <p className="text-slate-400 text-sm">Sign in to continue your journey</p>
+            <p className="text-slate-400 text-sm">
+              Sign in to continue your journey
+            </p>
           </motion.div>
 
           {/* Form */}
@@ -170,18 +184,91 @@ export default function Login() {
             initial="initial"
             animate="animate"
             onSubmit={handleSubmit}
-            className="space-y-5"
+            className="space-y-4"
           >
+            {/* Role */}
+            <motion.div variants={fieldVariant}>
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
+                Role
+              </label>
+              <div className="relative">
+                <UserCog
+                  size={16}
+                  className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none z-10"
+                  style={{
+                    color: focusedField === "role" ? "#22c55e" : "#475569",
+                  }}
+                />
+                <select
+                  value={form.role}
+                  onChange={handleChange("role")}
+                  onFocus={() => setFocusedField("role")}
+                  onBlur={() => setFocusedField(null)}
+                  className={inputBase + " appearance-none cursor-pointer"}
+                  style={{
+                    ...getInputStyle("role"),
+                    color: form.role ? "#fff" : "#64748b",
+                  }}
+                >
+                  <option value="" disabled>
+                    Select your role
+                  </option>
+                  <option
+                    value="admin"
+                    style={{ background: "#020617", color: "#fff" }}
+                  >
+                    Admin
+                  </option>
+                  <option
+                    value="employee"
+                    style={{ background: "#020617", color: "#fff" }}
+                  >
+                    Employee
+                  </option>
+                  <option
+                    value="customer"
+                    style={{ background: "#020617", color: "#fff" }}
+                  >
+                    Customer
+                  </option>
+                </select>
+                {/* Custom dropdown arrow */}
+                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path
+                      d="M2 4L6 8L10 4"
+                      stroke="#475569"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              {errors.role && (
+                <motion.p
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1"
+                >
+                  <span className="inline-block w-1 h-1 rounded-full bg-[#ef4444]" />
+                  {errors.role}
+                </motion.p>
+              )}
+            </motion.div>
+
             {/* Email */}
             <motion.div variants={fieldVariant}>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Email Address
               </label>
               <div className="relative">
                 <Mail
                   size={16}
                   className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
-                  style={{ color: focusedField === "email" ? "#22c55e" : "#475569" }}
+                  style={{
+                    color: focusedField === "email" ? "#22c55e" : "#475569",
+                  }}
                 />
                 <input
                   type="email"
@@ -208,14 +295,16 @@ export default function Login() {
 
             {/* Password */}
             <motion.div variants={fieldVariant}>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Password
               </label>
               <div className="relative">
                 <Lock
                   size={16}
                   className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
-                  style={{ color: focusedField === "password" ? "#22c55e" : "#475569" }}
+                  style={{
+                    color: focusedField === "password" ? "#22c55e" : "#475569",
+                  }}
                 />
                 <input
                   type={showPassword ? "text" : "password"}
@@ -247,62 +336,11 @@ export default function Login() {
               )}
             </motion.div>
 
-            {/* Role */}
-            <motion.div variants={fieldVariant}>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
-                Role
-              </label>
-              <div className="relative">
-                <UserCog
-                  size={16}
-                  className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none z-10"
-                  style={{ color: focusedField === "role" ? "#22c55e" : "#475569" }}
-                />
-                <select
-                  value={form.role}
-                  onChange={handleChange("role")}
-                  onFocus={() => setFocusedField("role")}
-                  onBlur={() => setFocusedField(null)}
-                  className={inputBase + " appearance-none cursor-pointer"}
-                  style={{
-                    ...getInputStyle("role"),
-                    color: form.role ? "#fff" : "#64748b",
-                  }}
-                >
-                  <option value="" disabled>
-                    Select your role
-                  </option>
-                  <option value="admin" style={{ background: "#020617", color: "#fff" }}>
-                    Admin
-                  </option>
-                  <option value="employee" style={{ background: "#020617", color: "#fff" }}>
-                    Employee
-                  </option>
-                  <option value="customer" style={{ background: "#020617", color: "#fff" }}>
-                    Customer
-                  </option>
-                </select>
-                {/* Custom dropdown arrow */}
-                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 4L6 8L10 4" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-              {errors.role && (
-                <motion.p
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1"
-                >
-                  <span className="inline-block w-1 h-1 rounded-full bg-[#ef4444]" />
-                  {errors.role}
-                </motion.p>
-              )}
-            </motion.div>
-
             {/* Forgot password */}
-            <motion.div variants={fieldVariant} className="flex justify-end -mt-1">
+            <motion.div
+              variants={fieldVariant}
+              className="flex justify-end -mt-1"
+            >
               <button
                 type="button"
                 className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
@@ -315,9 +353,12 @@ export default function Login() {
             <motion.div variants={fieldVariant}>
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.025, boxShadow: "0 8px 30px rgba(34,197,94,0.45)" }}
+                whileHover={{
+                  scale: 1.025,
+                  boxShadow: "0 8px 30px rgba(34,197,94,0.45)",
+                }}
                 whileTap={{ scale: 0.975 }}
-                className="w-full py-3.5 rounded-xl text-white font-bold text-sm tracking-wide transition-all duration-200 relative overflow-hidden"
+                className="w-full py-3 rounded-xl text-white font-bold text-sm tracking-wide transition-all duration-200 relative overflow-hidden"
                 style={{
                   background: "linear-gradient(to right, #84cc16, #22c55e)",
                   boxShadow: "0 4px 16px rgba(34,197,94,0.3)",
@@ -331,7 +372,8 @@ export default function Login() {
                 <div
                   className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
                   style={{
-                    background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
+                    background:
+                      "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
                   }}
                 />
               </motion.button>
@@ -343,7 +385,7 @@ export default function Login() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="flex items-center gap-3 my-6"
+            className="flex items-center gap-3 my-4"
           >
             <div className="flex-1 h-px bg-slate-800" />
             <span className="text-xs text-slate-600 font-medium">OR</span>
