@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Package, Truck, Users, Sprout, Smile, Sparkles, Heart, Bone, Flower, Pill } from 'lucide-react'
 
@@ -311,4 +312,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;
