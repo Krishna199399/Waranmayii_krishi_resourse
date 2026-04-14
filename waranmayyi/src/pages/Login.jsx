@@ -140,7 +140,7 @@ export default function Login() {
       >
         {/* Inner glow top strip */}
         <div
-          className="absolute top-0 left-[20%] right-[20%] h-px rounded-full"
+          className="absolute top-0 left-[20%] right-[20%] h-px rounded-full "
           style={{
             background:
               "linear-gradient(to right, transparent, rgba(52,211,153,0.6), transparent)",
