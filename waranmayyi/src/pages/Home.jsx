@@ -9,7 +9,7 @@ function Home() {
 
         <div className='relative z-10 mx-auto flex min-h-screen items-center px-6 py-14 sm:px-10 lg:px-16'>
           <div className='mx-auto w-full max-w-4xl text-center text-white'>
-            <span className='inline-flex rounded-full border border-emerald-400 bg-emerald-500/20 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-emerald-200'>
+            <span className='inline-flex rounded-full border border-emerald-400 bg-emerald-500/20 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-emerald-200 shadow-[0_0_0_10px_rgba(16,185,129,0.08)] animate-[float-badge_4s_ease-in-out_infinite]'>
               Eco-friendly agriculture, wellness, and lifestyle
             </span>
 
@@ -303,6 +303,151 @@ function Home() {
             <button className="rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-8 py-3 text-base font-semibold text-white transition hover:from-lime-600 hover:to-green-600 hover:shadow-lg hover:shadow-lime-500/40">
               View All Products
             </button>
+          </div>
+        </div>
+      </section>
+
+      <section id='Whychooseus' className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"></div>
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-black text-gray-900 sm:text-5xl lg:text-6xl tracking-tight leading-tight">
+              Why <span className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent">Choose Us</span>
+            </h2>
+            <p className="mt-6 text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed font-light">
+              Discover the unparalleled advantages that set Waranamayii apart in the bio-based solutions industry.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">🌿</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">100% Eco-Friendly</h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Every solution crafted with zero environmental compromise, ensuring sustainable impact for generations to come.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">🧪</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Scientifically Proven</h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Cutting-edge research and rigorous testing guarantee superior performance and unmatched reliability.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">🌐</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Global Network</h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Extensive distribution infrastructure ensuring seamless access to our innovations worldwide.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">🚀</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Sustainable Growth</h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Long-term strategies driving meaningful progress for businesses and communities alike.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">💚</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Community Trusted</h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Building lasting relationships through proven reliability and genuine community partnerships.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50 md:col-span-2 lg:col-span-1">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl">✨</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Innovation First</h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Pioneering bio-based solutions that redefine industry standards and create new possibilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gradient-to-br from-slate-100 via-emerald-100 to-teal-100">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="relative overflow-hidden rounded-[2rem] border border-emerald-200/70 bg-white shadow-[0_45px_120px_-60px_rgba(16,185,129,0.45)]">
+            <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-emerald-300/40 blur-3xl"></div>
+            <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-cyan-300/40 blur-3xl"></div>
+            <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr] items-center px-8 py-14 lg:px-16">
+              <div>
+                <span className="inline-flex rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-emerald-700">
+                  Join the Movement
+                </span>
+                <h2 className="mt-6 text-4xl font-black text-slate-900 sm:text-5xl lg:text-6xl tracking-tight">
+                  Become a Part of Our Growing Network
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                  Join Waranamayii and be a part of a mission that promotes sustainability and better living.
+                </p>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <button className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-3 text-base font-semibold text-white shadow-xl shadow-emerald-500/25 transition hover:from-emerald-700 hover:to-teal-700">
+                    Register Now
+                  </button>
+                  <button className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3 text-base font-semibold text-slate-900 transition hover:bg-slate-50">
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-950 px-6 py-8 shadow-2xl shadow-emerald-900/20 ring-1 ring-white/10">
+                <div className="absolute -top-8 right-6 h-24 w-24 rounded-full bg-emerald-500/20 blur-3xl"></div>
+                <div className="absolute -bottom-8 left-6 h-24 w-24 rounded-full bg-cyan-400/15 blur-3xl"></div>
+                <div className="relative space-y-6 text-white">
+                  <div className="flex items-center gap-4 rounded-3xl bg-white/10 p-5">
+                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-lime-400 to-emerald-500 text-xl">🌱</div>
+                    <div>
+                      <p className="text-sm uppercase tracking-[0.24em] text-emerald-200">Why Join</p>
+                      <h3 className="mt-2 text-2xl font-semibold">Grow with purpose</h3>
+                    </div>
+                  </div>
+                  <ul className="space-y-4 text-sm leading-6 text-slate-200">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-300">✓</span>
+                      Sustainable distribution designed for partners.
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-cyan-500/15 text-cyan-300">✓</span>
+                      Reliable onboarding and partner support.
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-300">✓</span>
+                      Products built for sustainable living.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
