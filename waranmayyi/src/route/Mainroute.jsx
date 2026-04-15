@@ -1,9 +1,10 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
-import Register from "../pages/Registration"; 
+import Register from "../pages/Registration";
+import Aboutus from "../pages/Aboutus";
 
 function Mainroute() {
   return (
@@ -11,6 +12,7 @@ function Mainroute() {
       <Routes>
         {/* Core Pages */}
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Aboutus />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
