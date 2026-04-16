@@ -32,12 +32,12 @@ export default function Navbar() {
           >
             About Us
           </Link>
-          <a
-            href="/products"
+          <Link
+            to="/products"
             className="text-gray-700 transition hover:text-green-600"
           >
             Products
-          </a>
+          </Link>
           <Link
             to="/contact"
             className="text-gray-700 transition hover:text-green-600"
@@ -85,12 +85,12 @@ export default function Navbar() {
             >
               About Us
             </Link>
-            <a
-              href="/products"
+            <Link
+              to="/products"
               className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600"
             >
               Products
-            </a>
+            </Link>
             <Link
               to="/contact"
               className="block rounded-lg px-4 py-2 text-gray-700 transition hover:bg-green-50 hover:text-green-600"
