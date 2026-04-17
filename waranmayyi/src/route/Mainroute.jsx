@@ -7,6 +7,8 @@ import Register from "../pages/Registration";
 import Aboutus from "../pages/Aboutus";
 import Products from "../pages/Products";
 
+import DashboardLayout from "../layouts/DashboardLayout";
+
 function Mainroute() {
   return (
     <>
@@ -18,7 +20,7 @@ function Mainroute() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        
+        <Route path="/dashboard" element={<DashboardLayout/>} />
       </Routes>
       </>
   );

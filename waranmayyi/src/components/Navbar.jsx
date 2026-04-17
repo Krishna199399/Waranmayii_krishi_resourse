@@ -44,6 +44,12 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
+          <Link
+            to="/dashboard"
+            className="text-gray-700 transition hover:text-green-600"
+          >
+            dashboard
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
