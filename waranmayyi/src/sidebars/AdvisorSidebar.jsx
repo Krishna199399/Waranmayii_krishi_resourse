@@ -1,16 +1,10 @@
 import React from 'react'
-
-
-
-
-{/* ==================== Sidebar Component ==================== */}
-import { Home, User, Package, BarChart3, Settings } from "lucide-react";
+import { Home, Users, ShoppingCart, CheckSquare, FileText, DollarSign, Settings } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export default function AdvisorSidebar() {
   return (
     <aside className="h-screen w-72 bg-gradient-to-b from-slate-950 via-emerald-950 to-slate-900 text-white relative overflow-hidden">
-
       {/* Glow Effects */}
       <div className="absolute -top-20 left-10 h-72 w-72 bg-emerald-500/20 blur-3xl rounded-full" />
       <div className="absolute bottom-0 right-10 h-80 w-80 bg-lime-400/10 blur-3xl rounded-full" />
@@ -20,37 +14,23 @@ export default function AdvisorSidebar() {
         <h1 className="text-2xl font-black tracking-wide">
           🌱 Waranamayii
         </h1>
+        <p className="text-xs text-slate-400 mt-1">Advisor</p>
       </div>
 
       {/* Navigation */}
       <nav className="relative mt-6 px-4 space-y-2">
-
-        {/* Item */}
-        <NavItem to="/dashboard" icon={<Home size={20} />} label="Dashboard" />
-        <NavItem to="/about" icon={<User size={20} />} label="About" />
-        <NavItem to="/products" icon={<Package size={20} />} label="Products" />
-        <NavItem to="/analytics" icon={<BarChart3 size={20} />} label="Analytics" />
-        <NavItem to="/settings" icon={<Settings size={20} />} label="Settings" />
-
+        <NavItem to="/dashboard/advisor" icon={<Home size={20} />} label="Dashboard" />
+        <NavItem to="/dashboard/advisor/farmers" icon={<Users size={20} />} label="My Farmers" />
+        <NavItem to="/dashboard/advisor/sales" icon={<ShoppingCart size={20} />} label="My Sales" />
+        <NavItem to="/dashboard/advisor/tasks" icon={<CheckSquare size={20} />} label="Tasks" />
+        <NavItem to="/dashboard/reports" icon={<FileText size={20} />} label="Reports" />
+        <NavItem to="/dashboard/revenue" icon={<DollarSign size={20} />} label="Revenue" />
+        <NavItem to="/dashboard/settings" icon={<Settings size={20} />} label="Settings" />
       </nav>
-
-      {/* Bottom Profile */}
-      <div className="absolute bottom-0 w-full p-4 border-t border-white/10">
-        <div className="flex items-center gap-3 rounded-xl bg-white/5 p-3 backdrop-blur-md">
-          <div className="h-10 w-10 rounded-full bg-emerald-500 flex items-center justify-center font-bold">
-            R
-          </div>
-          <div>
-            <p className="text-sm font-semibold">Roy Rag</p>
-            <p className="text-xs text-slate-400">Admin</p>
-          </div>
-        </div>
-      </div>
     </aside>
   );
 }
 
-/* ==================== Nav Item ==================== */
 function NavItem({ to, icon, label }) {
   return (
     <NavLink
@@ -64,12 +44,8 @@ function NavItem({ to, icon, label }) {
         }`
       }
     >
-      <span className="transition group-hover:scale-110">
-        {icon}
-      </span>
-      <span className="font-medium tracking-wide">
-        {label}
-      </span>
+      <span className="transition group-hover:scale-110">{icon}</span>
+      <span className="font-medium tracking-wide">{label}</span>
     </NavLink>
   );
 }

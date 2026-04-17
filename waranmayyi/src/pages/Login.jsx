@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Mail, Lock, UserCog, Eye, EyeOff, Leaf } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 const inputBase =
   "w-full bg-[#020617] border border-[#334155] text-white placeholder-slate-500 rounded-xl px-4 py-3 pl-11 text-sm outline-none transition-all duration-300 focus:border-[#22c55e]";
@@ -10,36 +10,9 @@ const glowStyle = {
   boxShadow: "0 0 0 3px rgba(34, 197, 94, 0.25)",
 };
 
-const pageVariants = {
-  initial: { opacity: 0, y: 32 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  },
-  exit: { opacity: 0, y: -24, transition: { duration: 0.3, ease: "easeIn" } },
-};
-
-const formVariants = {
-  initial: { opacity: 0, scale: 0.96 },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const stagger = {
-  animate: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
-};
-
-const fieldVariant = {
-  initial: { opacity: 0, y: 14 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-};
-
 export default function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [form, setForm] = useState({ email: "", password: "", role: "" });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -64,7 +37,16 @@ export default function Login() {
       return;
     }
     setErrors({});
-    alert(`Logged in as ${form.role}: ${form.email}`);
+    
+    // Login user with role
+    login({
+      email: form.email,
+      name: form.email.split('@')[0],
+      role: form.role
+    });
+
+    // Navigate to appropriate dashboard
+    navigate(`/dashboard/${form.role}`);
   };
 
   const handleChange = (field) => (e) => {
@@ -78,11 +60,7 @@ export default function Login() {
   });
 
   return (
-    <motion.div
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+    <div
       className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-8 md:py-15"
       style={{
         background:
@@ -123,10 +101,7 @@ export default function Login() {
       />
 
       {/* Card */}
-      <motion.div
-        variants={formVariants}
-        initial="initial"
-        animate="animate"
+      <div
         className="relative w-full max-w-md mx-4"
         style={{
           background: "rgba(16, 185, 129, 0.08)",
@@ -149,12 +124,7 @@ export default function Login() {
 
         <div className="p-6 sm:p-7">
           {/* Logo / Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex flex-col items-center mb-5"
-          >
+          <div className="flex flex-col items-center mb-5">
             <div
               className="w-11 h-11 rounded-2xl flex items-center justify-center mb-3"
               style={{
@@ -176,18 +146,15 @@ export default function Login() {
             <p className="text-slate-400 text-sm">
               Sign in to continue your journey
             </p>
-          </motion.div>
+          </div>
 
           {/* Form */}
-          <motion.form
-            variants={stagger}
-            initial="initial"
-            animate="animate"
+          <form
             onSubmit={handleSubmit}
             className="space-y-4"
           >
             {/* Role */}
-            <motion.div variants={fieldVariant}>
+            <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Role
               </label>
@@ -214,22 +181,34 @@ export default function Login() {
                     Select your role
                   </option>
                   <option
-                    value="admin"
+                    value="advisor"
                     style={{ background: "#020617", color: "#fff" }}
                   >
-                    Admin
+                    Advisor
                   </option>
                   <option
-                    value="employee"
+                    value="domanager"
                     style={{ background: "#020617", color: "#fff" }}
                   >
-                    Employee
+                    DO Manager
                   </option>
                   <option
-                    value="customer"
+                    value="areamanager"
                     style={{ background: "#020617", color: "#fff" }}
                   >
-                    Customer
+                    Area Manager
+                  </option>
+                  <option
+                    value="zonalmanager"
+                    style={{ background: "#020617", color: "#fff" }}
+                  >
+                    Zonal Manager
+                  </option>
+                  <option
+                    value="statehead"
+                    style={{ background: "#020617", color: "#fff" }}
+                  >
+                    State Head
                   </option>
                 </select>
                 {/* Custom dropdown arrow */}
@@ -246,19 +225,15 @@ export default function Login() {
                 </div>
               </div>
               {errors.role && (
-                <motion.p
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1"
-                >
+                <p className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1">
                   <span className="inline-block w-1 h-1 rounded-full bg-[#ef4444]" />
                   {errors.role}
-                </motion.p>
+                </p>
               )}
-            </motion.div>
+            </div>
 
             {/* Email */}
-            <motion.div variants={fieldVariant}>
+            <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Email Address
               </label>
@@ -282,19 +257,15 @@ export default function Login() {
                 />
               </div>
               {errors.email && (
-                <motion.p
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1"
-                >
+                <p className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1">
                   <span className="inline-block w-1 h-1 rounded-full bg-[#ef4444]" />
                   {errors.email}
-                </motion.p>
+                </p>
               )}
-            </motion.div>
+            </div>
 
             {/* Password */}
-            <motion.div variants={fieldVariant}>
+            <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-widest mb-1.5">
                 Password
               </label>
@@ -325,40 +296,28 @@ export default function Login() {
                 </button>
               </div>
               {errors.password && (
-                <motion.p
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1"
-                >
+                <p className="mt-1.5 text-xs text-[#ef4444] flex items-center gap-1">
                   <span className="inline-block w-1 h-1 rounded-full bg-[#ef4444]" />
                   {errors.password}
-                </motion.p>
+                </p>
               )}
-            </motion.div>
+            </div>
 
             {/* Forgot password */}
-            <motion.div
-              variants={fieldVariant}
-              className="flex justify-end -mt-1"
-            >
+            <div className="flex justify-end -mt-1">
               <button
                 type="button"
                 className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
               >
                 Forgot password?
               </button>
-            </motion.div>
+            </div>
 
             {/* Submit */}
-            <motion.div variants={fieldVariant}>
-              <motion.button
+            <div>
+              <button
                 type="submit"
-                whileHover={{
-                  scale: 1.025,
-                  boxShadow: "0 8px 30px rgba(34,197,94,0.45)",
-                }}
-                whileTap={{ scale: 0.975 }}
-                className="w-full py-3 rounded-xl text-white font-bold text-sm tracking-wide transition-all duration-200 relative overflow-hidden"
+                className="w-full py-3 rounded-xl text-white font-bold text-sm tracking-wide transition-all duration-200 relative overflow-hidden hover:scale-105"
                 style={{
                   background: "linear-gradient(to right, #84cc16, #22c55e)",
                   boxShadow: "0 4px 16px rgba(34,197,94,0.3)",
@@ -376,40 +335,29 @@ export default function Login() {
                       "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
                   }}
                 />
-              </motion.button>
-            </motion.div>
-          </motion.form>
+              </button>
+            </div>
+          </form>
 
           {/* Divider */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="flex items-center gap-3 my-4"
-          >
+          <div className="flex items-center gap-3 my-4">
             <div className="flex-1 h-px bg-slate-800" />
             <span className="text-xs text-slate-600 font-medium">OR</span>
             <div className="flex-1 h-px bg-slate-800" />
-          </motion.div>
+          </div>
 
           {/* Register link */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.65 }}
-            className="text-center text-sm text-slate-400"
-          >
+          <p className="text-center text-sm text-slate-400">
             New user?{" "}
-            <motion.button
-              whileHover={{ color: "#86efac" }}
+            <button
               onClick={() => navigate("/register")}
               className="text-emerald-400 font-semibold hover:underline underline-offset-4 transition-colors"
             >
               Register here
-            </motion.button>
-          </motion.p>
+            </button>
+          </p>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
