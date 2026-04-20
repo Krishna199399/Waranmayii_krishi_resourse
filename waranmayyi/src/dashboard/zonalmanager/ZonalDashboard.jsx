@@ -1,4 +1,22 @@
 import React from 'react'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
+
+const data = [
+  { name: "Jan", revenue: 4000 },
+  { name: "Feb", revenue: 3000 },
+  { name: "Mar", revenue: 5000 },
+  { name: "Apr", revenue: 4000 },
+  { name: "May", revenue: 6000 },
+];
+
+const piedata = [
+  { name: "Crops", value: 400 },
+  { name: "Fertilizers", value: 300 },
+  { name: "Equipment", value: 200 },
+  { name: "Services", value: 100 },
+];
+
+const COLORS = ["#007A55", "#22c55e", "#86efac", "#A4F4CF"];
 
 export default function ZonalDashboard() {
   return (
