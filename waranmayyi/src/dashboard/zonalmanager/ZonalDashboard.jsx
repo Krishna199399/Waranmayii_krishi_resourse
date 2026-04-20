@@ -1,4 +1,6 @@
 import React from 'react'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
+
 const data = [
   { name: "Jan", revenue: 4000 },
   { name: "Feb", revenue: 3000 },
