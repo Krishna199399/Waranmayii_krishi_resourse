@@ -11,6 +11,8 @@ import {
   Leaf,
 } from "lucide-react";
 
+const _motion = motion;
+
 const inputBase =
   "w-full bg-[#020617] border border-[#334155] text-white placeholder-slate-500 rounded-xl px-4 py-3 pl-11 text-sm outline-none transition-all duration-300 focus:border-[#22c55e]";
 

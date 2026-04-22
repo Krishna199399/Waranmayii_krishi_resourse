@@ -197,7 +197,7 @@ function Products() {
                 <div
                   className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br text-white shadow-lg transition-transform group-hover:scale-110 ${iconClass}`}
                 >
-                  <Icon size={32} />
+                  {React.createElement(Icon, { size: 32 })}
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-gray-900">{title}</h3>
               </div>
