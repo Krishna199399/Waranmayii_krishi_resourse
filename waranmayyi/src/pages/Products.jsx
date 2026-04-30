@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   Flower,
   Heart,
@@ -12,65 +13,179 @@ import {
 } from "lucide-react";
 
 function Products() {
-  const categories = [
+ 
+  const [activeTab, setActiveTab] = useState("All");
+
+  const products = [
+    // Bio Fertilizers
     {
-      title: "Bio Fertilizers",
-      icon: Sprout,
-      cardClass:
-        "from-green-50 to-emerald-50 border-green-100 hover:border-green-300 hover:shadow-green-100/60",
-      iconClass: "from-green-400 to-emerald-500",
+      title: "Nitro Grow",
+      category: "Bio Fertilizers",
+      image:
+        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop&crop=center",
+      desc: "Nitrogen boosting fertilizer.",
+      bg: "from-green-50 to-emerald-50",
+      btn: "from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600",
     },
     {
-      title: "Oral Care",
-      icon: Smile,
-      cardClass:
-        "from-blue-50 to-cyan-50 border-blue-100 hover:border-blue-300 hover:shadow-blue-100/60",
-      iconClass: "from-blue-400 to-cyan-500",
+      title: "Root Power",
+      category: "Bio Fertilizers",
+      image:
+        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop&crop=center",
+      desc: "Improves root growth.",
+      bg: "from-green-50 to-emerald-50",
+      btn: "from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600",
+    },
+
+    // Oral Care
+    {
+      title: "Herbal Toothpaste",
+      category: "Oral Care",
+      image:
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop&crop=center",
+      desc: "Fresh breath protection.",
+      bg: "from-blue-50 to-cyan-50",
+      btn: "from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600",
     },
     {
-      title: "Bio Enzyme Housekeeping",
-      icon: Sparkles,
-      cardClass:
-        "from-purple-50 to-indigo-50 border-purple-100 hover:border-purple-300 hover:shadow-purple-100/60",
-      iconClass: "from-purple-400 to-indigo-500",
+      title: "Mint Wash",
+      category: "Oral Care",
+      image:
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop&crop=center",
+      desc: "Natural mouthwash.",
+      bg: "from-blue-50 to-cyan-50",
+      btn: "from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600",
+    },
+
+    // Housekeeping
+    {
+      title: "Floor Cleaner",
+      category: "Housekeeping",
+      image:
+        "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=300&fit=crop&crop=center",
+      desc: "Bio enzyme floor cleaner.",
+      bg: "from-purple-50 to-indigo-50",
+      btn: "from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600",
     },
     {
-      title: "Wellness Products",
-      icon: Heart,
-      cardClass:
-        "from-pink-50 to-rose-50 border-pink-100 hover:border-pink-300 hover:shadow-pink-100/60",
-      iconClass: "from-pink-400 to-rose-500",
+      title: "Dish Wash",
+      category: "Housekeeping",
+      image:
+        "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=300&fit=crop&crop=center",
+      desc: "Gentle utensil cleaner.",
+      bg: "from-purple-50 to-indigo-50",
+      btn: "from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600",
+    },
+
+    // Wellness
+    {
+      title: "Immunity Booster",
+      category: "Wellness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
+      desc: "Supports immunity.",
+      bg: "from-pink-50 to-rose-50",
+      btn: "from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600",
     },
     {
-      title: "Animal Feeds",
-      icon: Bone,
-      cardClass:
-        "from-orange-50 to-yellow-50 border-orange-100 hover:border-orange-300 hover:shadow-orange-100/60",
-      iconClass: "from-orange-400 to-yellow-500",
+      title: "Stress Relief Oil",
+      category: "Wellness",
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
+      desc: "Relaxing wellness oil.",
+      bg: "from-pink-50 to-rose-50",
+      btn: "from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600",
+    },
+
+    // Animal Feeds
+    {
+      title: "Cattle Feed",
+      category: "Animal Feeds",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=center",
+      desc: "Nutritious cattle feed.",
+      bg: "from-orange-50 to-yellow-50",
+      btn: "from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600",
     },
     {
-      title: "FMCG Products",
-      icon: Package,
-      cardClass:
-        "from-teal-50 to-green-50 border-teal-100 hover:border-teal-300 hover:shadow-teal-100/60",
-      iconClass: "from-teal-400 to-green-500",
+      title: "Poultry Mix",
+      category: "Animal Feeds",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=center",
+      desc: "Healthy poultry nutrition.",
+      bg: "from-orange-50 to-yellow-50",
+      btn: "from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600",
+    },
+
+    // FMCG
+    {
+      title: "Organic Soap",
+      category: "FMCG",
+      image:
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&crop=center",
+      desc: "Daily care soap.",
+      bg: "from-teal-50 to-green-50",
+      btn: "from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600",
     },
     {
-      title: "Herbal Cosmetics",
-      icon: Flower,
-      cardClass:
-        "from-lime-50 to-green-50 border-lime-100 hover:border-lime-300 hover:shadow-lime-100/60",
-      iconClass: "from-lime-400 to-green-500",
+      title: "Hand Wash",
+      category: "FMCG",
+      image:
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&crop=center",
+      desc: "Gentle hand wash.",
+      bg: "from-teal-50 to-green-50",
+      btn: "from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600",
+    },
+
+    // Cosmetics
+    {
+      title: "Herbal Face Wash",
+      category: "Cosmetics",
+      image:
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=300&fit=crop&crop=center",
+      desc: "Clean glowing skin.",
+      bg: "from-lime-50 to-green-50",
+      btn: "from-lime-500 to-green-500 hover:from-lime-600 hover:to-green-600",
     },
     {
-      title: "Nutraceuticals",
-      icon: Pill,
-      cardClass:
-        "from-indigo-50 to-purple-50 border-indigo-100 hover:border-indigo-300 hover:shadow-indigo-100/60",
-      iconClass: "from-indigo-400 to-purple-500",
+      title: "Aloe Cream",
+      category: "Cosmetics",
+      image:
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=300&fit=crop&crop=center",
+      desc: "Soft skin moisturizer.",
+      bg: "from-lime-50 to-green-50",
+      btn: "from-lime-500 to-green-500 hover:from-lime-600 hover:to-green-600",
+    },
+
+    // Nutraceuticals
+    {
+      title: "Protein Plus",
+      category: "Nutraceuticals",
+      image:
+        "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=300&fit=crop&crop=center",
+      desc: "Daily protein support.",
+      bg: "from-indigo-50 to-purple-50",
+      btn: "from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600",
+    },
+    {
+      title: "Vitamin Care",
+      category: "Nutraceuticals",
+      image:
+        "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=300&fit=crop&crop=center",
+      desc: "Complete vitamin formula.",
+      bg: "from-indigo-50 to-purple-50",
+      btn: "from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600",
     },
   ];
 
+  const tabs = ["All", ...new Set(products.map((item) => item.category))];
+
+  const filteredProducts =
+    activeTab === "All"
+      ? products
+      : products.filter((item) => item.category === activeTab);
+  
+  // 
   const featuredProducts = [
     {
       title: "Bio Fertilizers",
@@ -176,36 +291,8 @@ function Products() {
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
-              Our Product Categories
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-              We offer a wide range of eco-friendly and innovative products across
-              multiple categories.
-            </p>
-          </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {categories.map(({ title, icon: Icon, cardClass, iconClass }) => (
-              <div
-                key={title}
-                className={`group rounded-2xl border bg-linear-to-br p-6 text-center transition hover:shadow-lg ${cardClass}`}
-              >
-                <div
-                  className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br text-white shadow-lg transition-transform group-hover:scale-110 ${iconClass}`}
-                >
-                  {React.createElement(Icon, { size: 32 })}
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-gray-900">{title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* featured products */}
       <section className="bg-linear-to-br from-gray-50 to-green-50 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
@@ -244,6 +331,88 @@ function Products() {
                 </div>
               )
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* products sidebar section */}
+      <section className="bg-linear-to-br from-gray-50 to-green-50 py-16 sm:py-20 ">
+        <div className="mx-auto max-w-9xl pr-4 ">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
+              Our Products
+            </h2>
+            <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+              Browse product categories from the sidebar and explore premium solutions.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 lg:grid-cols-[350px_1fr] ">
+            {/* Sidebar */}
+            <div className="rounded-r-2xl bg-linear-to-br from-green-200 to-green-400 p-5 shadow-lg h-fit sticky top-24 ">
+              <h3 className="mb-4 text-3xl font-semibold text-gray-900">
+                Categories
+              </h3>
+
+              <div className="space-y-3">
+                {tabs.map((tab, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveTab(tab)}
+                    className={`w-full rounded-xl px-4 py-3 text-left text-base font-medium transition-all duration-300 ${
+                      activeTab === tab
+                        ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
+                        : "bg-gray-50 text-gray-700 hover:bg-green-50 hover:text-green-700"
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Products */}
+            <div>
+              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4 ">
+                {filteredProducts.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`group overflow-hidden rounded-2xl border border-white/50 bg-gradient-to-br ${item.bg}
+                    shadow-lg transition hover:-translate-y-1 hover:shadow-xl`}
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                      />
+                    </div>
+
+                    <div className="p-6">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-sm text-gray-600">{item.desc}</p>
+
+                      <button
+                        className={`mt-4 w-full rounded-lg bg-gradient-to-r ${item.btn} py-2 text-sm font-medium text-white 
+                          transition`}
+                      >
+                        Explore Category
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom Button */}
+              <div className="mt-12 text-center">
+                <button className="rounded-full bg-gradient-to-r from-lime-500 to-green-500 px-8 py-3 text-base 
+                  font-semibold text-white transition hover:shadow-lg hover:shadow-lime-500/30">
+                  View All Products
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
